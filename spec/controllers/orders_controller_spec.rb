@@ -1,6 +1,11 @@
 require 'spec_helper'
 
 describe OrdersController do
+
+  before(:each) do
+    ActionMailer::Base.delivery_method = :smtp
+  end
+
   describe 'create' do
     it 'fails to creates an order without a stripeToken' do
       user = FactoryGirl.create(:user)
