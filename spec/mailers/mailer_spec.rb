@@ -13,6 +13,6 @@ describe Mailer do
   it 'sends an order confirmation email' do
     user = FactoryGirl.create(:user)
     order = FactoryGirl.create(:order, user: user)
-    email = Mailer.order_confirmation(user, order).deliver
+    email = Mailer.order_confirmation(order).deliver
   end
 end

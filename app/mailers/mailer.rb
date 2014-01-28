@@ -6,9 +6,9 @@ class Mailer < ActionMailer::Base
     mail(to: user.email, subject: "Welcome to Frank's Monsterporium!")
   end
 
-  def order_confirmation(user, order)
-    @user = user
+  def order_confirmation(order)
     @order = order
-    mail(to: user.email, subject: "Thanks for your purchase!")
+    @user = order.user
+    mail(to: @user.email, subject: "Thanks for your purchase!")
   end
 end
